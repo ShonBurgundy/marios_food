@@ -15,6 +15,11 @@ class Product < ApplicationRecord
     .limit(1)
   )}
 
+  scope :recently_added -> {(
+    where("created_at <=?", Time.now)
+    .order("created_at DESC")
+    .limit(3)
+  )}
 
   private
     def titleize_product
