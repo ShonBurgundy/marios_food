@@ -13,3 +13,11 @@ Product.destroy_all
                           cost: Faker::Number.decimal(l_digits: 2)
                           country: Faker::WorldCup.team)
   end
+
+Review.destroy_all
+
+250.times do |index|
+  Review.create!(author: Faker::FunnyName.two_word_name,
+                          content: Faker::Lorem.sentence(55, false, 0).chop,
+                          rating: Faker::Number.between(from: 1, to: 5))
+  end
