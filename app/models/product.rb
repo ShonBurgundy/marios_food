@@ -8,14 +8,14 @@ class Product < ApplicationRecord
   before_save(:titleize_product)
 
   scope :most_reviews, -> {(
-    select("products.id, products.name, products.cost, count(reviews.id) as reviews_count")
-    .join(:reviews)
+    select("products.id, products.name, count(reviews.id) as reviews_count")
+    .joins(:reviews)
     .group("products.id")
     .order("reviews_count DESC")
     .limit(1)
   )}
 
-  scope :recently_added -> {(
+  scope :recently_added, -> {(
     where("created_at <=?", Time.now)
     .order("created_at DESC")
     .limit(3)
