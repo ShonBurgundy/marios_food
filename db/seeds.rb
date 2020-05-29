@@ -21,3 +21,7 @@ Review.destroy_all
                           content: Faker::Lorem.sentence(55, false, 0).chop,
                           rating: Faker::Number.between(from: 1, to: 5))
   end
+
+
+p "Created #{Product.count} products!"
+p "Created #{Review.count} reviews!"
