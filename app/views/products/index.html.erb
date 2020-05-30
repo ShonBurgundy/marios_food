@@ -1,1 +1,14 @@
-<p>Hi</p>
+<h1>Take a gander at our goods!</h1>
+
+<p><%= link_to "Return to Homepage", root_path %></p><br>
+
+<% if @products.any? %>
+  <ul>
+    <% @products.each do |product| %>
+      <li><%= link_to product.name, product_path(product)%></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>We're out of products</p>
+<% end %>
+

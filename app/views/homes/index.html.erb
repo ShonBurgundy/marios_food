@@ -12,7 +12,7 @@
     <p>No recently added products!</p>
   <% end %>
 
-<p>seperation</p>
+<p>Our most popular product:</p>
 
   <%# Most Popular %>
   <% if @products.any? %>
@@ -23,5 +23,7 @@
       <p>No popular things here!</p>
     <% end %>
 
+
+<p><%= link_to "View all our products", products_path %></p>
 
 <p><%= link_to "Add a new product", new_product_path %></p>
