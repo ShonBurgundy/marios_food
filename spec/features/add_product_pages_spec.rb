@@ -16,4 +16,16 @@ describe "the add a product process" do
     click_on 'Create Product'
     expect(page).to have_content "Name can't be blank"
   end
+
+  it "gives an error when inputs are incomplete" do
+    visit new_product_path
+    click_on 'Create Product'
+    expect(page).to have_content "Cost can't be blank"
+  end
+
+  it "gives an error when inputs are incomplete" do
+    visit new_product_path
+    click_on 'Create Product'
+    expect(page).to have_content "Country can't be blank"
+  end
 end
