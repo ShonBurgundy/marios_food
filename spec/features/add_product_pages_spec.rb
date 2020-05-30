@@ -11,19 +11,19 @@ describe "the add a product process" do
     expect(page).to have_content 'Oreos'
   end
 
-  it "gives an error when inputs are incomplete" do
+  it "gives an error when name is incomplete" do
     visit new_product_path
     click_on 'Create Product'
     expect(page).to have_content "Name can't be blank"
   end
 
-  it "gives an error when inputs are incomplete" do
+  it "gives an error when cost is incomplete" do
     visit new_product_path
     click_on 'Create Product'
     expect(page).to have_content "Cost can't be blank"
   end
 
-  it "gives an error when inputs are incomplete" do
+  it "gives an error when country is incomplete" do
     visit new_product_path
     click_on 'Create Product'
     expect(page).to have_content "Country can't be blank"
