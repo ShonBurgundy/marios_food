@@ -1,28 +1,30 @@
 <h1><%= @product.name %></h1>
-<h3>$ <%= @product.cost %></h3>
-<h3>Country of origin: <%= @product.country %></h3>
+<div class="prodshow">
+  <h3>$ <%= @product.cost %></h3>
+  <h3>Country of origin: <%= @product.country %></h3>
 
-<% if @product.reviews.any? %>
-  <h4>Here are the reviews for this product:</h4>
+  <% if @product.reviews.any? %>
+    <h4>Here are the reviews for this product:</h4>
 
-  <% @product.reviews.each do |review| %>
-    <ul>
-      <li>
-        <%= link_to review.author, product_review_path(@product, review) %>
-      </li>
-    </ul>
+    <% @product.reviews.each do |review| %>
+      <ul>
+        <li>
+          <%= link_to review.author, product_review_path(@product, review) %>
+        </li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>No reviews have been made, add one!</p>
   <% end %>
-<% else %>
-  <p>No reviews have been made, add one!</p>
-<% end %>
 
-<% if current_user %>
-  <p><%= link_to "Add a review", new_product_review_path(@product) %></p>
-<% end %>
+  <% if current_user %>
+    <p><%= link_to "Add a review", new_product_review_path(@product) %></p>
+  <% end %>
 
-<% if current_user && current_user.admin %>
-  <p><%= link_to "Edit", edit_product_path(@product) %></p>
-  <p><%= link_to "Delete", product_path(@product),
-    :data => {:confirm => "You sure?",
-      :method => "delete"} %></p>
-<% end %>                               
+  <% if current_user && current_user.admin %>
+    <p><%= link_to "Edit", edit_product_path(@product) %></p>
+    <p><%= link_to "Delete", product_path(@product),
+      :data => {:confirm => "You sure?",
+        :method => "delete"} %></p>
+  <% end %>
+</div>                            

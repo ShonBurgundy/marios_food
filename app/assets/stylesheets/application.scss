@@ -17,12 +17,43 @@
  @import "bootstrap";
 
  body {
-  background-color: lightgrey;
+  background-color: rgba(236, 236, 236, 0.699);
  }
+
+ .jumbotron {
+   background-color: white;
+ }
+
+ .signup {
+   text-align: center;
+ }
+ 
+ .signin {
+  text-align: center;
+}
+.prodshow {
+  text-align: center;
+}
+
+// #homestyle {
+//   text-align: center;
+// }
+
+ .box {
+  margin: 20%;
+  padding: 25px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+#prodshow {
+  text-align: center;
+}
 
  #logs {
    padding-left: 45px;
    padding-top: 15px;
+   font-weight: bold;
  }
 
  h1 {
@@ -33,8 +64,11 @@
   text-align: center;
 }
 
+h3 {
+  text-align: center;
+}
+
  #left, #right {
-  /* background-color:rgba(255, 0, 0, 0.384); */
   background-image: linear-gradient(to bottom, #012f92, #402cf1, #d84659, #d0aed3, #d3d3d3);
   opacity: .4;
 	position: fixed;

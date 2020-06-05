@@ -1,31 +1,41 @@
 <h1>Welcome to Mario Bros Foods!</h1>
-<h4>Below is a list of some recent & most popular products:</h4>
+<div id="homestyle">
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Below is a list of some recent & most popular products:</h4>
 
-<%# 3 Newest Product %>
-<% if @products.any? %>
-  <ul>
-    <% @products_newest.each do |product| %>
-      <li><%= link_to product.name, product_path(product)%></li>
-    <% end %>
-    </ul>
-  <% else %>
-    <p>No recently added products!</p>
+      <%# 3 Newest Product %>
+      <% if @products.any? %>
+        <ul>
+          <% @products_newest.each do |product| %>
+            <li><%= link_to product.name, product_path(product)%></li>
+          <% end %>
+          </ul>
+        <% else %>
+          <p>No recently added products!</p>
+        <% end %>
+    </div>    
+      
+
+ 
+    <div class="col-md-4">
+      <h4>Our most popular product:</h4>
+
+        <%# Most Popular %>
+        <% if @products.any? %>
+          <% @products_most.each do |product| %>
+            <p><%= link_to product.name, product_path(product)%></p>
+          <% end %>
+          <% else %>
+            <p>No popular things here!</p>
+          <% end %>
+    </div>
+  </div>       
+
+
+  <p><%= link_to "View all our products", products_path %></p>
+
+  <% if current_user && current_user.admin %>
+    <p><%= link_to "Add a new product", new_product_path %></p>
   <% end %>
-
-<p>Our most popular product:</p>
-
-  <%# Most Popular %>
-  <% if @products.any? %>
-    <% @products_most.each do |product| %>
-      <p><%= link_to product.name, product_path(product)%></p>
-    <% end %>
-    <% else %>
-      <p>No popular things here!</p>
-    <% end %>
-
-
-<p><%= link_to "View all our products", products_path %></p>
-
-<% if current_user && current_user.admin %>
-  <p><%= link_to "Add a new product", new_product_path %></p>
-<% end %>
+</div>  
