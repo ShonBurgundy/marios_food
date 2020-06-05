@@ -15,3 +15,29 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ #logs {
+   padding-left: 45px;
+   padding-top: 15px;
+ }
+
+ h1 {
+   text-align: center;
+ }
+
+ h2 {
+  text-align: center;
+}
+
+ #left, #right {
+  /* background-color:rgba(255, 0, 0, 0.384); */
+  background-image: linear-gradient(to bottom, #012f92, #402cf1, #d84659, #d0aed3, #d3d3d3);
+  opacity: .4;
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 40px;
+		}
+		#left { left: 0; }
+    #right { right: 0; }
