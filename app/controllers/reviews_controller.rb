@@ -10,8 +10,10 @@ class ReviewsController < ApplicationController
     @product = Product.find(params[:product_id])
     @review = @product.reviews.new(review_params)
     if @review.save
+      flash[:notice] = "Review successfully added!"
       redirect_to product_path(@product)
     else
+      flash[:notice] = "Review not added, review needs minimum of 50 characters!"
       render :new
     end
   end
@@ -31,6 +33,7 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
+      flash[:notice] = "Review successfully updated!"
       redirect_to product_path(@review.product)
     else
       render :edit
@@ -40,6 +43,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
+    flash[:notice] = "Review successfully deleted!"
     redirect_to product_path(@review.product)
   end
 
