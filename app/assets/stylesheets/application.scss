@@ -16,6 +16,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ body {
+  background-color: lightgrey;
+ }
+
  #logs {
    padding-left: 45px;
    padding-top: 15px;
