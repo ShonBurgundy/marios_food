@@ -16,8 +16,6 @@
         <% end %>
     </div>    
       
-
- 
     <div class="col-md-4">
       <h4>Our most popular product:</h4>
 
@@ -28,6 +26,20 @@
           <% end %>
           <% else %>
             <p>No popular things here!</p>
+          <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <h4>Products made in the U.S.A:</h4>
+
+        <%# USA PRODUCTS %>
+        <% if @products.any? %>
+          <ul>
+          <% @usa.each do |product| %>
+            <li><%= link_to product.name, product_path(product)%></li>
+          <% end %>
+          </ul>
+            <p>No USA made items here!</p>
           <% end %>
     </div>
   </div>       
