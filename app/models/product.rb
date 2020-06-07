@@ -21,7 +21,7 @@ class Product < ApplicationRecord
     .limit(3)
   )}
 
-  scope :search, -> { where("country ilike ?", "%United States%")}
+  scope :search, -> { where("country like ?", "%United States%")}
 
 
   private
