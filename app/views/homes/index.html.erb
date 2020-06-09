@@ -35,10 +35,11 @@
         <%# USA PRODUCTS %>
         <% if @products.any? %>
           <ul>
-          <% @usa.each do |product| %>
-            <li><%= link_to product.name, product_path(product)%></li>
-          <% end %>
+            <% @usa.each do |product| %>
+              <li><%= link_to product.name, product_path(product)%></li>
+            <% end %>
           </ul>
+          <% else %>
             <p>No USA made items here!</p>
           <% end %>
     </div>
