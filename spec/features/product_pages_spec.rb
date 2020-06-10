@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the add a product process" do
+describe "Product CRUD tests" do
 
   before(:each) do
     User.destroy_all
@@ -22,6 +22,18 @@ describe "the add a product process" do
     click_on 'Create Product'
     expect(page).to have_content 'Oreos'
   end
+
+  # ------------------  WORKING ON THIS SPEC  ------------------
+  it "deletes a product" do
+    test_product = Product.create(:name => 'Food', :cost => 2, :country => 'spain', :id => nil)
+    id = test_product.id
+    visit products_path
+    click_link 'Food'
+    click_on 'Delete'
+    visit products_path
+    expect(page).not_to have_content'Food'
+  end
+# ---------------------------------------------------------------------
 
   it "gives an error when name is incomplete" do
     visit new_product_path
