@@ -37,6 +37,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review successfully updated!"
       redirect_to product_path(@review.product)
     else
+      flash[:notice] = "Review not updated!"
       render :edit
     end
   end
