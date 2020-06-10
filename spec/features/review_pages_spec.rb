@@ -20,10 +20,25 @@ describe "Reviews CRUD tests" do
     click_link 'Food'
     click_link 'Add a review'
     fill_in 'Author', :with => 'Me'
-    fill_in 'Content', :with => 'this is going to be 50 character because it has to be at least that long to actually work its got to be long, super long!!!!!!!'
+    fill_in 'Content', :with => 'this is going to be 50 character because it has to be at least that long to actually work!'
     fill_in 'Rating', :with => '4'
     click_on 'Create Review'
     expect(page).to have_content 'Me'
+  end
+
+  it "deletes a review" do
+    test_product = Product.create(:name => 'Food', :cost => 2, :country => 'spain', :id => nil)
+    id = test_product.id
+    visit products_path
+    click_link 'Food'
+    click_link 'Add a review'
+    fill_in 'Author', :with => 'Me'
+    fill_in 'Content', :with => 'this is going to be 50 character because it has to be at least that long to actually work!'
+    fill_in 'Rating', :with => '4'
+    click_on 'Create Review'
+    expect(page).to have_content 'Me'
+    click_on 'Delete'
+    expect(page).not_to have_content 'Me'
   end
 
 end
