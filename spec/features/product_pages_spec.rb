@@ -23,7 +23,6 @@ describe "Product CRUD tests" do
     expect(page).to have_content 'Oreos'
   end
 
-  # ------------------  WORKING ON THIS SPEC  ------------------
   it "deletes a product" do
     test_product = Product.create(:name => 'Food', :cost => 2, :country => 'spain', :id => nil)
     id = test_product.id
@@ -34,6 +33,21 @@ describe "Product CRUD tests" do
     expect(page).not_to have_content'Food'
   end
 # ---------------------------------------------------------------------
+# ------------------------  NEED TO ADD EDIT PRODUCT TEST ------------------------
+
+  it "updates a product" do
+    test_product = Product.create(:name => 'Food', :cost => 2, :country => 'spain', :id => nil)
+    id = test_product.id
+    visit products_path
+    click_link 'Food'
+    click_link 'Edit'
+    fill_in 'Name', :with => 'Oreos'
+    fill_in 'Cost', :with => '4'
+    fill_in 'Country', :with => 'usa'
+    click_on 'Update Product'
+    visit products_path
+    expect(page).to have_content 'Oreos'
+  end
 
   it "gives an error when name is incomplete" do
     visit new_product_path
