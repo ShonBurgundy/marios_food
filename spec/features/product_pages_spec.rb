@@ -32,8 +32,6 @@ describe "Product CRUD tests" do
     visit products_path
     expect(page).not_to have_content'Food'
   end
-# ---------------------------------------------------------------------
-# ------------------------  NEED TO ADD EDIT PRODUCT TEST ------------------------
 
   it "updates a product" do
     test_product = Product.create(:name => 'Food', :cost => 2, :country => 'spain', :id => nil)
