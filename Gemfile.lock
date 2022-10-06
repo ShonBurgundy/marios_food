@@ -46,8 +46,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     arel (9.0.0)
     autoprefixer-rails (9.7.6)
       execjs
@@ -125,7 +125,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.5)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
@@ -138,7 +140,7 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (4.0.5)
+    public_suffix (5.0.0)
     puma (3.12.6)
     rack (2.2.2)
     rack-pjax (1.1.0)
@@ -227,7 +229,6 @@ GEM
       tilt
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
-    shutup (0.1.2)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -285,7 +286,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sassc-rails (>= 2.1.0)
   shoulda-matchers
-  shutup
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
